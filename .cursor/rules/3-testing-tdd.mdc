@@ -1,0 +1,14 @@
+---
+description: "Testing and TDD workflow"
+alwaysApply: true
+---
+
+# Test Driven Development (TDD)
+- Write tests before writing implementation logic
+- For each feature:
+  1. Create a failing test first (JUnit 5)
+  2. Implement code minimal to pass test
+  3. Refactor and improve coverage
+- Use explicit test naming: given_when_then pattern
+- Keep unit tests fast (mock external resources)
+- Use integration tests with H2 database for DAO/Repository layers

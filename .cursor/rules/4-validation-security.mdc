@@ -1,0 +1,13 @@
+---
+description: "Validation and security rules for API"
+globs:
+  - "src/main/java/**/dto/**/*.java"
+  - "src/main/java/**/controller/**/*.java"
+alwaysApply: false
+---
+
+# Validation & Security
+- Always validate incoming DTOs with Bean Validation
+- Return meaningful error messages on validation failure
+- Apply Bearer JWT authentication on protected endpoints
+- Keep error responses consistent and safe

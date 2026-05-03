@@ -1,0 +1,13 @@
+---
+description: "API design and documentation guidelines"
+globs:
+  - "src/main/java/**/controller/**/*.java"
+alwaysApply: false
+---
+
+# REST API design
+- Use `@RestController`, `@RequestMapping` for API controllers
+- Document API endpoints with SpringDoc OpenAPI (Swagger)
+- Always include descriptive Javadoc on controllers
+- Validate request payloads with Bean Validation annotations (e.g., @NotNull, @Size)
+- Return structured error responses with `@RestControllerAdvice`

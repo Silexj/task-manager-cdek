@@ -1,0 +1,11 @@
+---
+description: "Project architecture and Java + Spring Boot standards"
+alwaysApply: true
+---
+
+# Java/Spring Boot project stack
+- Use Java 21 and Spring Boot 3.4.13
+- Project build using Maven
+- Use standard Spring Boot layered architecture (controller/service/repository)
+- Keep files small and cohesive
+- Follow consistent naming conventions: CamelCase for classes, lowerCamelCase for variables
