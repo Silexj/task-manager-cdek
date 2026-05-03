@@ -25,7 +25,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
- * Спецификация {@link TaskService}: пока {@link TaskServiceImpl} не реализован, тесты должны падать.
+ * Юнит-тесты {@link TaskServiceImpl} против моков {@link TaskRepository}.
  */
 @ExtendWith(MockitoExtension.class)
 class TaskServiceTest {

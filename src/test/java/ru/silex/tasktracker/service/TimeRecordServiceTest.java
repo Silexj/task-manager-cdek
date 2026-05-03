@@ -29,7 +29,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
- * Спецификация {@link TimeRecordService}: пока {@link TimeRecordServiceImpl} не реализован, тесты должны падать.
+ * Юнит-тесты {@link TimeRecordServiceImpl} против моков репозиториев.
  */
 @ExtendWith(MockitoExtension.class)
 class TimeRecordServiceTest {
