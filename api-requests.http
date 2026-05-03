@@ -1,0 +1,39 @@
+### Task Time Tracker — примеры запросов
+### Базовый URL (меняйте порт при необходимости)
+@baseUrl = http://localhost:8080
+@taskId = 1
+@employeeId = 100
+
+### 1. Создание задачи
+POST {{baseUrl}}/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Демо-задача",
+  "description": "Краткое описание для проверки API"
+}
+
+### 2. Получение задачи по ID
+GET {{baseUrl}}/api/tasks/{{taskId}}
+
+### 3. Изменение статуса задачи (NEW | IN_PROGRESS | DONE)
+PATCH {{baseUrl}}/api/tasks/{{taskId}}/status
+Content-Type: application/json
+
+{
+  "status": "IN_PROGRESS"
+}
+
+### 4. Создание записи о затраченном времени на задачу
+POST {{baseUrl}}/api/tasks/{{taskId}}/time-records
+Content-Type: application/json
+
+{
+  "employeeId": {{employeeId}},
+  "startedAt": "2026-05-03T09:00:00Z",
+  "finishedAt": "2026-05-03T12:30:00Z",
+  "workDescription": "Разработка контроллеров и тестов"
+}
+
+### 5. Затраты времени сотрудника за период (from/to — ISO-8601 Instant)
+GET {{baseUrl}}/api/employees/{{employeeId}}/time-records?from=2026-05-01T00:00:00Z&to=2026-05-31T23:59:59Z

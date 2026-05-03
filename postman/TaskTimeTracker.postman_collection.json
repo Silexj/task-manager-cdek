@@ -1,0 +1,64 @@
+{
+  "info": {
+    "name": "Task Time Tracker API",
+    "description": "Коллекция по тестовому заданию — все REST-эндпойнты сервиса.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" },
+    { "key": "taskId", "value": "1" },
+    { "key": "employeeId", "value": "100" }
+  ],
+  "item": [
+    {
+      "name": "1. Create task",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Демо-задача\",\n  \"description\": \"Описание из Postman\"\n}"
+        },
+        "url": "{{baseUrl}}/api/tasks"
+      }
+    },
+    {
+      "name": "2. Get task by id",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/tasks/{{taskId}}"
+      }
+    },
+    {
+      "name": "3. Update task status",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"IN_PROGRESS\"\n}"
+        },
+        "url": "{{baseUrl}}/api/tasks/{{taskId}}/status"
+      }
+    },
+    {
+      "name": "4. Create time record",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"employeeId\": {{employeeId}},\n  \"startedAt\": \"2026-05-03T09:00:00Z\",\n  \"finishedAt\": \"2026-05-03T12:00:00Z\",\n  \"workDescription\": \"Работа над задачей\"\n}"
+        },
+        "url": "{{baseUrl}}/api/tasks/{{taskId}}/time-records"
+      }
+    },
+    {
+      "name": "5. List employee time records in period",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/employees/{{employeeId}}/time-records?from=2026-05-01T00:00:00Z&to=2026-05-31T23:59:59Z"
+      }
+    }
+  ]
+}
