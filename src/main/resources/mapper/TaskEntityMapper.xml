@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ru.silex.tasktracker.persistence.mybatis.TaskEntityMapper">
+
+    <resultMap id="TaskEntityMap" type="ru.silex.tasktracker.persistence.model.TaskEntity">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="description" property="description"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO tasks (title, description, status)
+        VALUES (#{title}, #{description}, #{status})
+    </insert>
+
+    <update id="update">
+        UPDATE tasks
+        SET title = #{title},
+            description = #{description},
+            status = #{status}
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectById" resultMap="TaskEntityMap">
+        SELECT id, title, description, status
+        FROM tasks
+        WHERE id = #{id}
+    </select>
+</mapper>
